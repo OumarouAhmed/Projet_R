@@ -1,0 +1,89 @@
+[
+  {
+    "objectID": "qmd/sts-offre-transport.html",
+    "href": "qmd/sts-offre-transport.html",
+    "title": "STS - Offre de transport: analyse descriptive",
+    "section": "",
+    "text": "Ce document presente une analyse descriptive de l’offre de transport de la ST Sahel (jeu de donnees GTFS). Les etapes suivent le plan demande: chargement des donnees, statistiques globales, repartition par ligne, amplitude horaire, visualisations et interpretation des resultats.",
+    "crumbs": [
+      "Projects",
+      "STS - Offre de transport: analyse descriptive"
+    ]
+  },
+  {
+    "objectID": "qmd/sts-offre-transport.html#contexte-et-objectifs",
+    "href": "qmd/sts-offre-transport.html#contexte-et-objectifs",
+    "title": "STS - Offre de transport: analyse descriptive",
+    "section": "",
+    "text": "Ce document presente une analyse descriptive de l’offre de transport de la ST Sahel (jeu de donnees GTFS). Les etapes suivent le plan demande: chargement des donnees, statistiques globales, repartition par ligne, amplitude horaire, visualisations et interpretation des resultats.",
+    "crumbs": [
+      "Projects",
+      "STS - Offre de transport: analyse descriptive"
+    ]
+  },
+  {
+    "objectID": "qmd/sts-offre-transport.html#etape-1-collecte-et-preparation-des-donnees",
+    "href": "qmd/sts-offre-transport.html#etape-1-collecte-et-preparation-des-donnees",
+    "title": "STS - Offre de transport: analyse descriptive",
+    "section": "2 Etape 1: Collecte et preparation des donnees",
+    "text": "2 Etape 1: Collecte et preparation des donnees\n\n\nShow code\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(tidyr)\n\ndata_dir &lt;- file.path(\"data\", \"STS\")\nif (!dir.exists(data_dir)) {\n  data_dir &lt;- file.path(\"qmd\", \"data\", \"STS\")\n}\n\nread_gtfs &lt;- function(path) {\n  data &lt;- read.delim(\n    path,\n    stringsAsFactors = FALSE,\n    fileEncoding = \"UTF-16LE\",\n    sep = \"\\t\",\n    header = FALSE,\n    fill = TRUE,\n    check.names = TRUE\n  )\n  data &lt;- data[-1, , drop = FALSE]\n\n  base &lt;- basename(path)\n  if (base == \"routes.txt\") {\n    cols &lt;- c(\n      \"agency_id\",\n      \"route_short_name\",\n      \"route_id\",\n      \"route_long_name\",\n      \"route_type\",\n      \"route_type_name\"\n    )\n  } else if (base == \"stops.txt\") {\n    cols &lt;- c(\"stop_id\", \"stop_name\", \"stop_lat\", \"stop_lon\")\n  } else if (base == \"trips.txt\") {\n    cols &lt;- c(\"trip_id\", \"route_id\", \"service_id\", \"direction_id\", \"shape_id\")\n  } else if (base == \"stop-times.txt\") {\n    cols &lt;- c(\n      \"trip_id\",\n      \"stop_id\",\n      \"arrival_time\",\n      \"departure_time\",\n      \"stop_sequence\"\n    )\n  } else {\n    cols &lt;- paste0(\"v\", seq_len(ncol(data)))\n  }\n\n  names(data) &lt;- tolower(cols[seq_len(ncol(data))])\n  data\n}\n\nroutes &lt;- read_gtfs(file.path(data_dir, \"routes.txt\"))\nstops &lt;- read_gtfs(file.path(data_dir, \"stops.txt\"))\ntrips &lt;- read_gtfs(file.path(data_dir, \"trips.txt\"))\nstop_times &lt;- read_gtfs(file.path(data_dir, \"stop-times.txt\"))\n\nroutes$route_id &lt;- as.character(routes$route_id)\ntrips$route_id &lt;- as.character(trips$route_id)\ntrips$trip_id &lt;- as.character(trips$trip_id)\nstop_times$trip_id &lt;- as.character(stop_times$trip_id)\nstop_times$stop_id &lt;- as.character(stop_times$stop_id)\n\nparse_hhmmss_to_minutes &lt;- function(x) {\n  parts &lt;- strsplit(x, \":\", fixed = TRUE)\n  sapply(parts, function(p) {\n    if (length(p) &lt; 3) {\n      return(NA_real_)\n    }\n    as.numeric(p[1]) * 60 + as.numeric(p[2]) + as.numeric(p[3]) / 60\n  })\n}\n\nminutes_to_hhmm &lt;- function(m) {\n  if (is.na(m)) {\n    return(NA_character_)\n  }\n  m_round &lt;- as.integer(round(m))\n  h &lt;- m_round %/% 60\n  mins &lt;- m_round %% 60\n  sprintf(\"%02d:%02d\", h, mins)\n}\n\nstop_times &lt;- stop_times %&gt;%\n  mutate(\n    dep_min = parse_hhmmss_to_minutes(departure_time),\n    arr_min = parse_hhmmss_to_minutes(arrival_time)\n  )\n\nstop_times_clean &lt;- stop_times %&gt;%\n  filter(!is.na(dep_min), !is.na(arr_min))",
+    "crumbs": [
+      "Projects",
+      "STS - Offre de transport: analyse descriptive"
+    ]
+  },
+  {
+    "objectID": "qmd/sts-offre-transport.html#etape-2-analyse-descriptive-et-statistiques-cles",
+    "href": "qmd/sts-offre-transport.html#etape-2-analyse-descriptive-et-statistiques-cles",
+    "title": "STS - Offre de transport: analyse descriptive",
+    "section": "3 Etape 2: Analyse descriptive et statistiques cles",
+    "text": "3 Etape 2: Analyse descriptive et statistiques cles\n\n\nShow code\n# Statistiques globales\n\ntotal_lignes &lt;- n_distinct(routes$route_id)\ntotal_arrets &lt;- n_distinct(stops$stop_id)\ntotal_trajets &lt;- nrow(trips)\n\nfirst_bus_min &lt;- min(stop_times_clean$dep_min, na.rm = TRUE)\nlast_bus_min &lt;- max(stop_times_clean$arr_min, na.rm = TRUE)\n\nfirst_bus_time &lt;- minutes_to_hhmm(first_bus_min)\nlast_bus_time &lt;- minutes_to_hhmm(last_bus_min)\n\namplitude_hours &lt;- (last_bus_min - first_bus_min) / 60\n\n# Repartition par ligne\ntrips_by_line &lt;- trips %&gt;%\n  count(route_id, name = \"Nombre_Trajets\")\n\nstops_by_line &lt;- stop_times_clean %&gt;%\n  inner_join(trips %&gt;% select(trip_id, route_id), by = \"trip_id\") %&gt;%\n  group_by(route_id) %&gt;%\n  summarise(Nombre_Arrets = n_distinct(stop_id), .groups = \"drop\")\n\nline_stats &lt;- full_join(trips_by_line, stops_by_line, by = \"route_id\") %&gt;%\n  left_join(\n    routes %&gt;% select(route_id, route_short_name, route_long_name),\n    by = \"route_id\"\n  ) %&gt;%\n  mutate(\n    Nom_Ligne = ifelse(\n      !is.na(route_short_name) & route_short_name != \"\",\n      route_short_name,\n      route_long_name\n    )\n  ) %&gt;%\n  select(route_id, Nom_Ligne, Nombre_Arrets, Nombre_Trajets) %&gt;%\n  mutate(\n    Nombre_Arrets = replace_na(Nombre_Arrets, 0),\n    Nombre_Trajets = replace_na(Nombre_Trajets, 0),\n    Part_Trajets = Nombre_Trajets / sum(Nombre_Trajets)\n  ) %&gt;%\n  arrange(desc(Nombre_Trajets))\n\narrets_stats &lt;- line_stats %&gt;%\n  summarise(\n    min_arrets = min(Nombre_Arrets, na.rm = TRUE),\n    max_arrets = max(Nombre_Arrets, na.rm = TRUE),\n    mean_arrets = mean(Nombre_Arrets, na.rm = TRUE),\n    median_arrets = median(Nombre_Arrets, na.rm = TRUE),\n    q1_arrets = quantile(Nombre_Arrets, 0.25, na.rm = TRUE),\n    q3_arrets = quantile(Nombre_Arrets, 0.75, na.rm = TRUE)\n  )\n\ntrajets_stats &lt;- line_stats %&gt;%\n  summarise(\n    min_trajets = min(Nombre_Trajets, na.rm = TRUE),\n    max_trajets = max(Nombre_Trajets, na.rm = TRUE),\n    mean_trajets = mean(Nombre_Trajets, na.rm = TRUE),\n    median_trajets = median(Nombre_Trajets, na.rm = TRUE),\n    q1_trajets = quantile(Nombre_Trajets, 0.25, na.rm = TRUE),\n    q3_trajets = quantile(Nombre_Trajets, 0.75, na.rm = TRUE)\n  )\n\npercent &lt;- function(x) paste0(round(x * 100, 1), \"%\")\n\ntop_15_share &lt;- line_stats %&gt;%\n  mutate(part = Nombre_Trajets / sum(Nombre_Trajets, na.rm = TRUE)) %&gt;%\n  slice(1:15) %&gt;%\n  summarise(share = sum(part, na.rm = TRUE)) %&gt;%\n  pull(share)\n\ntop_10_lines &lt;- line_stats %&gt;%\n  arrange(desc(Nombre_Trajets)) %&gt;%\n  slice_head(n = 10)\n\n\n\n3.1 Statistiques globales\n\nNombre total de lignes: 265\nNombre total d’arrets: 852\nNombre total de trajets: 76\nPremier depart: NA:NA\nDerniere arrivee: NA:NA\nAmplitude horaire (heures): -\n\n\n\n3.2 Repartition par ligne\n\n\nShow code\n# Apercu des lignes les plus frequentes\nline_stats %&gt;%\n  arrange(desc(Nombre_Trajets)) %&gt;%\n  head(10)\n\n\n   route_id Nom_Ligne Nombre_Arrets Nombre_Trajets Part_Trajets\n1     31201       201             0             23   0.30263158\n2     15252       252             0             14   0.18421053\n3     24240       240             0              7   0.09210526\n4     11301       301             0              6   0.07894737\n5     21322       322             0              4   0.05263158\n6     32511       511             0              4   0.05263158\n7     11304       304             0              2   0.02631579\n8     11306       306             0              2   0.02631579\n9     21321       321             0              2   0.02631579\n10    22323      &lt;NA&gt;             0              2   0.02631579\n\n\n\n\nShow code\n# Tableau resume pour le top 10\ntop_10_lines %&gt;%\n  mutate(Part_Trajets = round(Part_Trajets * 100, 1)) %&gt;%\n  select(Nom_Ligne, Nombre_Arrets, Nombre_Trajets, Part_Trajets)\n\n\n   Nom_Ligne Nombre_Arrets Nombre_Trajets Part_Trajets\n1        201             0             23         30.3\n2        252             0             14         18.4\n3        240             0              7          9.2\n4        301             0              6          7.9\n5        322             0              4          5.3\n6        511             0              4          5.3\n7        304             0              2          2.6\n8        306             0              2          2.6\n9        321             0              2          2.6\n10      &lt;NA&gt;             0              2          2.6\n\n\n\n\nShow code\n# Statistiques des arrets par ligne\narrets_stats\n\n\n  min_arrets max_arrets mean_arrets median_arrets q1_arrets q3_arrets\n1          0          0           0             0         0         0\n\n\n\n\nShow code\n# Statistiques des trajets par ligne\ntrajets_stats\n\n\n  min_trajets max_trajets mean_trajets median_trajets q1_trajets q3_trajets\n1           1          23         4.75              2          2        4.5",
+    "crumbs": [
+      "Projects",
+      "STS - Offre de transport: analyse descriptive"
+    ]
+  },
+  {
+    "objectID": "qmd/sts-offre-transport.html#etape-3-visualisations",
+    "href": "qmd/sts-offre-transport.html#etape-3-visualisations",
+    "title": "STS - Offre de transport: analyse descriptive",
+    "section": "4 Etape 3: Visualisations",
+    "text": "4 Etape 3: Visualisations\n\n4.1 Distribution du nombre d’arrets par ligne\n\n\nShow code\nggplot(line_stats, aes(x = Nombre_Arrets)) +\n  geom_histogram(binwidth = 2, fill = \"#2b7a78\", color = \"white\") +\n  labs(\n    title = \"Distribution du nombre d'arrets par ligne\",\n    x = \"Nombre d'arrets\",\n    y = \"Nombre de lignes\"\n  ) +\n  theme_minimal(base_size = 12)\n\n\n\n\n\n\n\n\n\n\n\n4.2 Distribution du nombre de trajets par ligne\n\n\nShow code\nggplot(line_stats, aes(x = Nombre_Trajets)) +\n  geom_histogram(binwidth = 2, fill = \"#17252a\", color = \"white\") +\n  labs(\n    title = \"Distribution du nombre de trajets par ligne\",\n    x = \"Nombre de trajets\",\n    y = \"Nombre de lignes\"\n  ) +\n  theme_minimal(base_size = 12)\n\n\n\n\n\n\n\n\n\n\n\n4.3 Boxplot du nombre de trajets par ligne\n\n\nShow code\nggplot(line_stats, aes(y = Nombre_Trajets)) +\n  geom_boxplot(fill = \"#3aafa9\") +\n  labs(\n    title = \"Boite a moustaches du nombre de trajets par ligne\",\n    y = \"Nombre de trajets\"\n  ) +\n  theme_minimal(base_size = 12)\n\n\n\n\n\n\n\n\n\n\n\n4.4 Top 10 des lignes par nombre de trajets\n\n\nShow code\nggplot(top_10_lines, aes(x = reorder(Nom_Ligne, Nombre_Trajets), y = Nombre_Trajets)) +\n  geom_col(fill = \"#ff6f61\") +\n  coord_flip() +\n  labs(\n    title = \"Top 10 des lignes les plus frequentes\",\n    x = \"Ligne\",\n    y = \"Nombre de trajets\"\n  ) +\n  theme_minimal(base_size = 12)\n\n\n\n\n\n\n\n\n\n\n\n4.5 Relation entre arrets et trajets\n\n\nShow code\nggplot(line_stats, aes(x = Nombre_Arrets, y = Nombre_Trajets)) +\n  geom_point(color = \"#2c3e50\", alpha = 0.7) +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"#e74c3c\") +\n  labs(\n    title = \"Relation entre nombre d'arrets et nombre de trajets\",\n    x = \"Nombre d'arrets\",\n    y = \"Nombre de trajets\"\n  ) +\n  theme_minimal(base_size = 12)",
+    "crumbs": [
+      "Projects",
+      "STS - Offre de transport: analyse descriptive"
+    ]
+  },
+  {
+    "objectID": "qmd/sts-offre-transport.html#etape-4-interpretation-et-synthese",
+    "href": "qmd/sts-offre-transport.html#etape-4-interpretation-et-synthese",
+    "title": "STS - Offre de transport: analyse descriptive",
+    "section": "5 Etape 4: Interpretation et synthese",
+    "text": "5 Etape 4: Interpretation et synthese\n\nL’offre comprend 265 lignes et 852 arrets.\nLe service debute a NA:NA et se termine vers NA:NA, pour une amplitude d’environ - heures.\nLes 15 lignes les plus frequentes representent 98.7% de l’ensemble des trajets.\nLa mediane du nombre de trajets par ligne est de 2 avec un intervalle interquartile de 2 a 4.5.",
+    "crumbs": [
+      "Projects",
+      "STS - Offre de transport: analyse descriptive"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Transport ST Sahel",
+    "section": "",
+    "text": "Ce site presente le projet d’analyse descriptive de l’offre de transport ST Sahel. Il couvre le chargement des donnees, les statistiques cles, les visualisations et une synthese des resultats."
+  },
+  {
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
+    "title": "Transport ST Sahel",
+    "section": "",
+    "text": "Ce site presente le projet d’analyse descriptive de l’offre de transport ST Sahel. Il couvre le chargement des donnees, les statistiques cles, les visualisations et une synthese des resultats."
+  },
+  {
+    "objectID": "index.html#auteur",
+    "href": "index.html#auteur",
+    "title": "Transport ST Sahel",
+    "section": "2 Auteur",
+    "text": "2 Auteur\nAhmed Oumarou"
+  }
+]
