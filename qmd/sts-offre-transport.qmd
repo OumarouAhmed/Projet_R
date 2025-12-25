@@ -13,7 +13,8 @@ execute:
 
 Ce document presente une analyse descriptive de l'offre de transport de la ST Sahel
 (jeu de donnees GTFS). Les etapes suivent le plan demande: chargement des donnees,
-statistiques globales, repartition par ligne, amplitude horaire et visualisations.
+statistiques globales, repartition par ligne, amplitude horaire, visualisations et
+interpretation des resultats.
 
 ## Etape 1: Collecte et preparation des donnees
 
@@ -105,6 +106,9 @@ stop_times <- stop_times %>%
     dep_min = parse_hhmmss_to_minutes(departure_time),
     arr_min = parse_hhmmss_to_minutes(arrival_time)
   )
+
+stop_times_clean <- stop_times %>%
+  filter(!is.na(dep_min), !is.na(arr_min))
 ```
 
 ## Etape 2: Analyse descriptive et statistiques cles
@@ -116,8 +120,8 @@ total_lignes <- n_distinct(routes$route_id)
 total_arrets <- n_distinct(stops$stop_id)
 total_trajets <- nrow(trips)
 
-first_bus_min <- min(stop_times$dep_min, na.rm = TRUE)
-last_bus_min <- max(stop_times$arr_min, na.rm = TRUE)
+first_bus_min <- min(stop_times_clean$dep_min, na.rm = TRUE)
+last_bus_min <- max(stop_times_clean$arr_min, na.rm = TRUE)
 
 first_bus_time <- minutes_to_hhmm(first_bus_min)
 last_bus_time <- minutes_to_hhmm(last_bus_min)
@@ -128,7 +132,7 @@ amplitude_hours <- (last_bus_min - first_bus_min) / 60
 trips_by_line <- trips %>%
   count(route_id, name = "Nombre_Trajets")
 
-stops_by_line <- stop_times %>%
+stops_by_line <- stop_times_clean %>%
   inner_join(trips %>% select(trip_id, route_id), by = "trip_id") %>%
   group_by(route_id) %>%
   summarise(Nombre_Arrets = n_distinct(stop_id), .groups = "drop")
@@ -146,20 +150,31 @@ line_stats <- full_join(trips_by_line, stops_by_line, by = "route_id") %>%
     )
   ) %>%
   select(route_id, Nom_Ligne, Nombre_Arrets, Nombre_Trajets) %>%
+  mutate(
+    Nombre_Arrets = replace_na(Nombre_Arrets, 0),
+    Nombre_Trajets = replace_na(Nombre_Trajets, 0),
+    Part_Trajets = Nombre_Trajets / sum(Nombre_Trajets)
+  ) %>%
   arrange(desc(Nombre_Trajets))
 
 arrets_stats <- line_stats %>%
   summarise(
     min_arrets = min(Nombre_Arrets, na.rm = TRUE),
     max_arrets = max(Nombre_Arrets, na.rm = TRUE),
-    mean_arrets = mean(Nombre_Arrets, na.rm = TRUE)
+    mean_arrets = mean(Nombre_Arrets, na.rm = TRUE),
+    median_arrets = median(Nombre_Arrets, na.rm = TRUE),
+    q1_arrets = quantile(Nombre_Arrets, 0.25, na.rm = TRUE),
+    q3_arrets = quantile(Nombre_Arrets, 0.75, na.rm = TRUE)
   )
 
 trajets_stats <- line_stats %>%
   summarise(
     min_trajets = min(Nombre_Trajets, na.rm = TRUE),
     max_trajets = max(Nombre_Trajets, na.rm = TRUE),
-    mean_trajets = mean(Nombre_Trajets, na.rm = TRUE)
+    mean_trajets = mean(Nombre_Trajets, na.rm = TRUE),
+    median_trajets = median(Nombre_Trajets, na.rm = TRUE),
+    q1_trajets = quantile(Nombre_Trajets, 0.25, na.rm = TRUE),
+    q3_trajets = quantile(Nombre_Trajets, 0.75, na.rm = TRUE)
   )
 
 percent <- function(x) paste0(round(x * 100, 1), "%")
@@ -169,6 +184,10 @@ top_15_share <- line_stats %>%
   slice(1:15) %>%
   summarise(share = sum(part, na.rm = TRUE)) %>%
   pull(share)
+
+top_10_lines <- line_stats %>%
+  arrange(desc(Nombre_Trajets)) %>%
+  slice_head(n = 10)
 ```
 
 ### Statistiques globales
@@ -187,6 +206,13 @@ top_15_share <- line_stats %>%
 line_stats %>%
   arrange(desc(Nombre_Trajets)) %>%
   head(10)
+```
+
+```{r}
+# Tableau resume pour le top 10
+top_10_lines %>%
+  mutate(Part_Trajets = round(Part_Trajets * 100, 1)) %>%
+  select(Nom_Ligne, Nombre_Arrets, Nombre_Trajets, Part_Trajets)
 ```
 
 ```{r}
@@ -211,7 +237,7 @@ ggplot(line_stats, aes(x = Nombre_Arrets)) +
     x = "Nombre d'arrets",
     y = "Nombre de lignes"
   ) +
-  theme_minimal()
+  theme_minimal(base_size = 12)
 ```
 
 ### Distribution du nombre de trajets par ligne
@@ -224,7 +250,7 @@ ggplot(line_stats, aes(x = Nombre_Trajets)) +
     x = "Nombre de trajets",
     y = "Nombre de lignes"
   ) +
-  theme_minimal()
+  theme_minimal(base_size = 12)
 ```
 
 ### Boxplot du nombre de trajets par ligne
@@ -236,7 +262,35 @@ ggplot(line_stats, aes(y = Nombre_Trajets)) +
     title = "Boite a moustaches du nombre de trajets par ligne",
     y = "Nombre de trajets"
   ) +
-  theme_minimal()
+  theme_minimal(base_size = 12)
+```
+
+### Top 10 des lignes par nombre de trajets
+
+```{r}
+ggplot(top_10_lines, aes(x = reorder(Nom_Ligne, Nombre_Trajets), y = Nombre_Trajets)) +
+  geom_col(fill = "#ff6f61") +
+  coord_flip() +
+  labs(
+    title = "Top 10 des lignes les plus frequentes",
+    x = "Ligne",
+    y = "Nombre de trajets"
+  ) +
+  theme_minimal(base_size = 12)
+```
+
+### Relation entre arrets et trajets
+
+```{r}
+ggplot(line_stats, aes(x = Nombre_Arrets, y = Nombre_Trajets)) +
+  geom_point(color = "#2c3e50", alpha = 0.7) +
+  geom_smooth(method = "lm", se = FALSE, color = "#e74c3c") +
+  labs(
+    title = "Relation entre nombre d'arrets et nombre de trajets",
+    x = "Nombre d'arrets",
+    y = "Nombre de trajets"
+  ) +
+  theme_minimal(base_size = 12)
 ```
 
 ## Etape 4: Interpretation et synthese
@@ -246,3 +300,6 @@ ggplot(line_stats, aes(y = Nombre_Trajets)) +
   pour une amplitude d'environ `r round(amplitude_hours, 1)` heures.
 - Les 15 lignes les plus frequentes representent `r percent(top_15_share)`
   de l'ensemble des trajets.
+- La mediane du nombre de trajets par ligne est de `r trajets_stats$median_trajets`
+  avec un intervalle interquartile de `r trajets_stats$q1_trajets` a
+  `r trajets_stats$q3_trajets`.
