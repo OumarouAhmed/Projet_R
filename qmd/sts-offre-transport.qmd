@@ -265,6 +265,22 @@ ggplot(line_stats, aes(y = Nombre_Trajets)) +
   theme_minimal(base_size = 12)
 ```
 
+### Repartition horaire des departs
+
+```{r}
+stop_times_clean %>%
+  mutate(heure = floor(dep_min / 60)) %>%
+  ggplot(aes(x = heure)) +
+  geom_histogram(binwidth = 1, fill = "#6c5ce7", color = "white") +
+  scale_x_continuous(breaks = seq(0, 24, 2)) +
+  labs(
+    title = "Repartition horaire des departs",
+    x = "Heure de la journee",
+    y = "Nombre de departs"
+  ) +
+  theme_minimal(base_size = 12)
+```
+
 ### Top 10 des lignes par nombre de trajets
 
 ```{r}
@@ -303,3 +319,26 @@ ggplot(line_stats, aes(x = Nombre_Arrets, y = Nombre_Trajets)) +
 - La mediane du nombre de trajets par ligne est de `r trajets_stats$median_trajets`
   avec un intervalle interquartile de `r trajets_stats$q1_trajets` a
   `r trajets_stats$q3_trajets`.
+
+## Etape 5: Complement d'analyse
+
+### Lignes a forte couverture d'arrets
+
+```{r}
+line_stats %>%
+  arrange(desc(Nombre_Arrets)) %>%
+  slice_head(n = 5)
+```
+
+### Qualite des donnees horaires
+
+```{r}
+missing_times <- stop_times %>%
+  summarise(
+    total = n(),
+    dep_manquants = sum(is.na(dep_min)),
+    arr_manquants = sum(is.na(arr_min))
+  )
+
+missing_times
+```
