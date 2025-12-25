@@ -181,10 +181,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#distribution-du-nombre-darrets-par-ligne" id="toc-distribution-du-nombre-darrets-par-ligne" class="nav-link" data-scroll-target="#distribution-du-nombre-darrets-par-ligne"><span class="header-section-number">4.1</span> Distribution du nombre d’arrets par ligne</a></li>
   <li><a href="#distribution-du-nombre-de-trajets-par-ligne" id="toc-distribution-du-nombre-de-trajets-par-ligne" class="nav-link" data-scroll-target="#distribution-du-nombre-de-trajets-par-ligne"><span class="header-section-number">4.2</span> Distribution du nombre de trajets par ligne</a></li>
   <li><a href="#boxplot-du-nombre-de-trajets-par-ligne" id="toc-boxplot-du-nombre-de-trajets-par-ligne" class="nav-link" data-scroll-target="#boxplot-du-nombre-de-trajets-par-ligne"><span class="header-section-number">4.3</span> Boxplot du nombre de trajets par ligne</a></li>
-  <li><a href="#top-10-des-lignes-par-nombre-de-trajets" id="toc-top-10-des-lignes-par-nombre-de-trajets" class="nav-link" data-scroll-target="#top-10-des-lignes-par-nombre-de-trajets"><span class="header-section-number">4.4</span> Top 10 des lignes par nombre de trajets</a></li>
-  <li><a href="#relation-entre-arrets-et-trajets" id="toc-relation-entre-arrets-et-trajets" class="nav-link" data-scroll-target="#relation-entre-arrets-et-trajets"><span class="header-section-number">4.5</span> Relation entre arrets et trajets</a></li>
+  <li><a href="#repartition-horaire-des-departs" id="toc-repartition-horaire-des-departs" class="nav-link" data-scroll-target="#repartition-horaire-des-departs"><span class="header-section-number">4.4</span> Repartition horaire des departs</a></li>
+  <li><a href="#top-10-des-lignes-par-nombre-de-trajets" id="toc-top-10-des-lignes-par-nombre-de-trajets" class="nav-link" data-scroll-target="#top-10-des-lignes-par-nombre-de-trajets"><span class="header-section-number">4.5</span> Top 10 des lignes par nombre de trajets</a></li>
+  <li><a href="#relation-entre-arrets-et-trajets" id="toc-relation-entre-arrets-et-trajets" class="nav-link" data-scroll-target="#relation-entre-arrets-et-trajets"><span class="header-section-number">4.6</span> Relation entre arrets et trajets</a></li>
   </ul></li>
   <li><a href="#etape-4-interpretation-et-synthese" id="toc-etape-4-interpretation-et-synthese" class="nav-link" data-scroll-target="#etape-4-interpretation-et-synthese"><span class="header-section-number">5</span> Etape 4: Interpretation et synthese</a></li>
+  <li><a href="#etape-5-complement-danalyse" id="toc-etape-5-complement-danalyse" class="nav-link" data-scroll-target="#etape-5-complement-danalyse"><span class="header-section-number">6</span> Etape 5: Complement d’analyse</a>
+  <ul class="collapse">
+  <li><a href="#lignes-a-forte-couverture-darrets" id="toc-lignes-a-forte-couverture-darrets" class="nav-link" data-scroll-target="#lignes-a-forte-couverture-darrets"><span class="header-section-number">6.1</span> Lignes a forte couverture d’arrets</a></li>
+  <li><a href="#qualite-des-donnees-horaires" id="toc-qualite-des-donnees-horaires" class="nav-link" data-scroll-target="#qualite-des-donnees-horaires"><span class="header-section-number">6.2</span> Qualite des donnees horaires</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/OumarouAhmed/Projet_R/edit/main/qmd/sts-offre-transport.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/OumarouAhmed/Projet_R/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -544,20 +550,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="top-10-des-lignes-par-nombre-de-trajets" class="level3" data-number="4.4">
-<h3 data-number="4.4" class="anchored" data-anchor-id="top-10-des-lignes-par-nombre-de-trajets"><span class="header-section-number">4.4</span> Top 10 des lignes par nombre de trajets</h3>
+<section id="repartition-horaire-des-departs" class="level3" data-number="4.4">
+<h3 data-number="4.4" class="anchored" data-anchor-id="repartition-horaire-des-departs"><span class="header-section-number">4.4</span> Repartition horaire des departs</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Show code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(top_10_lines, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(Nom_Ligne, Nombre_Trajets), <span class="at">y =</span> Nombre_Trajets)) <span class="sc">+</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"#ff6f61"</span>) <span class="sc">+</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Top 10 des lignes les plus frequentes"</span>,</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Ligne"</span>,</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Nombre de trajets"</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>stop_times_clean <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">heure =</span> <span class="fu">floor</span>(dep_min <span class="sc">/</span> <span class="dv">60</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> heure)) <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">fill =</span> <span class="st">"#6c5ce7"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">24</span>, <span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Repartition horaire des departs"</span>,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Heure de la journee"</span>,</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Nombre de departs"</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -568,17 +576,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="relation-entre-arrets-et-trajets" class="level3" data-number="4.5">
-<h3 data-number="4.5" class="anchored" data-anchor-id="relation-entre-arrets-et-trajets"><span class="header-section-number">4.5</span> Relation entre arrets et trajets</h3>
+<section id="top-10-des-lignes-par-nombre-de-trajets" class="level3" data-number="4.5">
+<h3 data-number="4.5" class="anchored" data-anchor-id="top-10-des-lignes-par-nombre-de-trajets"><span class="header-section-number">4.5</span> Top 10 des lignes par nombre de trajets</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Show code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(line_stats, <span class="fu">aes</span>(<span class="at">x =</span> Nombre_Arrets, <span class="at">y =</span> Nombre_Trajets)) <span class="sc">+</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"#2c3e50"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"#e74c3c"</span>) <span class="sc">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(top_10_lines, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(Nom_Ligne, Nombre_Trajets), <span class="at">y =</span> Nombre_Trajets)) <span class="sc">+</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"#ff6f61"</span>) <span class="sc">+</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Relation entre nombre d'arrets et nombre de trajets"</span>,</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Nombre d'arrets"</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Top 10 des lignes les plus frequentes"</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Ligne"</span>,</span>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Nombre de trajets"</span></span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -587,6 +595,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div>
 <figure class="figure">
 <p><img src="sts-offre-transport_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="relation-entre-arrets-et-trajets" class="level3" data-number="4.6">
+<h3 data-number="4.6" class="anchored" data-anchor-id="relation-entre-arrets-et-trajets"><span class="header-section-number">4.6</span> Relation entre arrets et trajets</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(line_stats, <span class="fu">aes</span>(<span class="at">x =</span> Nombre_Arrets, <span class="at">y =</span> Nombre_Trajets)) <span class="sc">+</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"#2c3e50"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"#e74c3c"</span>) <span class="sc">+</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Relation entre nombre d'arrets et nombre de trajets"</span>,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Nombre d'arrets"</span>,</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Nombre de trajets"</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sts-offre-transport_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -601,8 +633,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Les 15 lignes les plus frequentes representent 98.7% de l’ensemble des trajets.</li>
 <li>La mediane du nombre de trajets par ligne est de 2 avec un intervalle interquartile de 2 a 4.5.</li>
 </ul>
+</section>
+<section id="etape-5-complement-danalyse" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="etape-5-complement-danalyse"><span class="header-section-number">6</span> Etape 5: Complement d’analyse</h2>
+<section id="lignes-a-forte-couverture-darrets" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="lignes-a-forte-couverture-darrets"><span class="header-section-number">6.1</span> Lignes a forte couverture d’arrets</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>line_stats <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Nombre_Arrets)) <span class="sc">%&gt;%</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  route_id Nom_Ligne Nombre_Arrets Nombre_Trajets Part_Trajets
+1    31201       201             0             23   0.30263158
+2    15252       252             0             14   0.18421053
+3    24240       240             0              7   0.09210526
+4    11301       301             0              6   0.07894737
+5    21322       322             0              4   0.05263158</code></pre>
+</div>
+</div>
+</section>
+<section id="qualite-des-donnees-horaires" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="qualite-des-donnees-horaires"><span class="header-section-number">6.2</span> Qualite des donnees horaires</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>missing_times <span class="ot">&lt;-</span> stop_times <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">total =</span> <span class="fu">n</span>(),</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">dep_manquants =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(dep_min)),</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">arr_manquants =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(arr_min))</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>missing_times</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  total dep_manquants arr_manquants
+1   660           660           660</code></pre>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
