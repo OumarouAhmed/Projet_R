@@ -84,6 +84,9 @@ stop_times$stop_id <- as.character(stop_times$stop_id)
 parse_hhmmss_to_minutes <- function(x) {
   parts <- strsplit(x, ":", fixed = TRUE)
   sapply(parts, function(p) {
+    if (length(p) == 2) {
+      return(as.numeric(p[1]) * 60 + as.numeric(p[2]))
+    }
     if (length(p) < 3) {
       return(NA_real_)
     }
@@ -137,7 +140,18 @@ stops_by_line <- stop_times_clean %>%
   group_by(route_id) %>%
   summarise(Nombre_Arrets = n_distinct(stop_id), .groups = "drop")
 
+line_span <- stop_times_clean %>%
+  inner_join(trips %>% select(trip_id, route_id), by = "trip_id") %>%
+  group_by(route_id) %>%
+  summarise(
+    first_dep = min(dep_min, na.rm = TRUE),
+    last_dep = max(dep_min, na.rm = TRUE),
+    amplitude_h = (last_dep - first_dep) / 60,
+    .groups = "drop"
+  )
+
 line_stats <- full_join(trips_by_line, stops_by_line, by = "route_id") %>%
+  left_join(line_span, by = "route_id") %>%
   left_join(
     routes %>% select(route_id, route_short_name, route_long_name),
     by = "route_id"
@@ -149,11 +163,20 @@ line_stats <- full_join(trips_by_line, stops_by_line, by = "route_id") %>%
       route_long_name
     )
   ) %>%
-  select(route_id, Nom_Ligne, Nombre_Arrets, Nombre_Trajets) %>%
+  select(
+    route_id,
+    Nom_Ligne,
+    Nombre_Arrets,
+    Nombre_Trajets,
+    first_dep,
+    last_dep,
+    amplitude_h
+  ) %>%
   mutate(
     Nombre_Arrets = replace_na(Nombre_Arrets, 0),
     Nombre_Trajets = replace_na(Nombre_Trajets, 0),
-    Part_Trajets = Nombre_Trajets / sum(Nombre_Trajets)
+    Part_Trajets = Nombre_Trajets / sum(Nombre_Trajets),
+    freq_par_heure = ifelse(amplitude_h > 0, Nombre_Trajets / amplitude_h, NA_real_)
   ) %>%
   arrange(desc(Nombre_Trajets))
 
@@ -175,6 +198,14 @@ trajets_stats <- line_stats %>%
     median_trajets = median(Nombre_Trajets, na.rm = TRUE),
     q1_trajets = quantile(Nombre_Trajets, 0.25, na.rm = TRUE),
     q3_trajets = quantile(Nombre_Trajets, 0.75, na.rm = TRUE)
+  )
+
+amplitude_stats <- line_stats %>%
+  summarise(
+    min_amp = min(amplitude_h, na.rm = TRUE),
+    max_amp = max(amplitude_h, na.rm = TRUE),
+    mean_amp = mean(amplitude_h, na.rm = TRUE),
+    median_amp = median(amplitude_h, na.rm = TRUE)
   )
 
 percent <- function(x) paste0(round(x * 100, 1), "%")
@@ -225,6 +256,11 @@ arrets_stats
 trajets_stats
 ```
 
+```{r}
+# Statistiques d'amplitude horaire par ligne
+amplitude_stats
+```
+
 ## Etape 3: Visualisations
 
 ### Distribution du nombre d'arrets par ligne
@@ -261,6 +297,19 @@ ggplot(line_stats, aes(y = Nombre_Trajets)) +
   labs(
     title = "Boite a moustaches du nombre de trajets par ligne",
     y = "Nombre de trajets"
+  ) +
+  theme_minimal(base_size = 12)
+```
+
+### Distribution de l'amplitude horaire par ligne
+
+```{r}
+ggplot(line_stats, aes(x = amplitude_h)) +
+  geom_histogram(binwidth = 1, fill = "#00b894", color = "white") +
+  labs(
+    title = "Distribution de l'amplitude horaire par ligne",
+    x = "Amplitude (heures)",
+    y = "Nombre de lignes"
   ) +
   theme_minimal(base_size = 12)
 ```
@@ -319,6 +368,8 @@ ggplot(line_stats, aes(x = Nombre_Arrets, y = Nombre_Trajets)) +
 - La mediane du nombre de trajets par ligne est de `r trajets_stats$median_trajets`
   avec un intervalle interquartile de `r trajets_stats$q1_trajets` a
   `r trajets_stats$q3_trajets`.
+- L'amplitude horaire mediane par ligne est de `r round(amplitude_stats$median_amp, 1)`
+  heures, avec un maximum de `r round(amplitude_stats$max_amp, 1)` heures.
 
 ## Etape 5: Complement d'analyse
 
@@ -342,3 +393,4 @@ missing_times <- stop_times %>%
 
 missing_times
 ```
+
