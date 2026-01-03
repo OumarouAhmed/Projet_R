@@ -3,6 +3,8 @@ title: "STS - Offre de transport: analyse descriptive"
 format:
   html:
     toc: true
+    code-fold: true
+    code-link: false
 execute:
   echo: true
   warning: false
@@ -16,12 +18,19 @@ Ce document presente une analyse descriptive de l'offre de transport de la ST Sa
 statistiques globales, repartition par ligne, amplitude horaire, visualisations et
 interpretation des resultats.
 
+## Methodologie
+
+- Source: donnees GTFS (routes, stops, trips, stop-times).
+- Preparation: lecture UTF-16, harmonisation des identifiants et nettoyage des heures.
+- Limites: pas de donnees de demande (voyageurs), analyse centree sur l'offre.
+
 ## Etape 1: Collecte et preparation des donnees
 
 ```{r}
 library(dplyr)
 library(ggplot2)
 library(tidyr)
+library(knitr)
 
 data_dir <- file.path("data", "STS")
 if (!dir.exists(data_dir)) {
@@ -261,6 +270,15 @@ trajets_stats
 amplitude_stats
 ```
 
+### Analyse des heures de pointe (matin/soir)
+
+- Heure la plus chargee: 
+ peak_hour h
+- Part des departs 06h-09h: 
+ percent(morning_share)
+- Part des departs 16h-19h: 
+ percent(evening_share)
+
 ## Etape 3: Visualisations
 
 ### Distribution du nombre d'arrets par ligne
@@ -393,4 +411,18 @@ missing_times <- stop_times %>%
 
 missing_times
 ```
+
+## Conclusion
+
+Constats:
+- Les trajets sont concentres sur un petit nombre de lignes.
+- La distribution des frequences est heterogene selon les lignes.
+- Les departs se concentrent sur des plages horaires de pointe (matin/soir).
+
+Recommandations:
+- Renforcer l'offre sur les lignes les plus sollicitees.
+- Ajuster la frequence pendant les heures de pointe matin/soir.
+- Ameliorer la qualite des donnees horaires pour un suivi plus fin.
+
+
 

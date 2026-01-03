@@ -170,28 +170,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#contexte-et-objectifs" id="toc-contexte-et-objectifs" class="nav-link active" data-scroll-target="#contexte-et-objectifs"><span class="header-section-number">1</span> Contexte et objectifs</a></li>
-  <li><a href="#etape-1-collecte-et-preparation-des-donnees" id="toc-etape-1-collecte-et-preparation-des-donnees" class="nav-link" data-scroll-target="#etape-1-collecte-et-preparation-des-donnees"><span class="header-section-number">2</span> Etape 1: Collecte et preparation des donnees</a></li>
-  <li><a href="#etape-2-analyse-descriptive-et-statistiques-cles" id="toc-etape-2-analyse-descriptive-et-statistiques-cles" class="nav-link" data-scroll-target="#etape-2-analyse-descriptive-et-statistiques-cles"><span class="header-section-number">3</span> Etape 2: Analyse descriptive et statistiques cles</a>
+  <li><a href="#methodologie" id="toc-methodologie" class="nav-link" data-scroll-target="#methodologie"><span class="header-section-number">2</span> Methodologie</a></li>
+  <li><a href="#etape-1-collecte-et-preparation-des-donnees" id="toc-etape-1-collecte-et-preparation-des-donnees" class="nav-link" data-scroll-target="#etape-1-collecte-et-preparation-des-donnees"><span class="header-section-number">3</span> Etape 1: Collecte et preparation des donnees</a></li>
+  <li><a href="#etape-2-analyse-descriptive-et-statistiques-cles" id="toc-etape-2-analyse-descriptive-et-statistiques-cles" class="nav-link" data-scroll-target="#etape-2-analyse-descriptive-et-statistiques-cles"><span class="header-section-number">4</span> Etape 2: Analyse descriptive et statistiques cles</a>
   <ul class="collapse">
-  <li><a href="#statistiques-globales" id="toc-statistiques-globales" class="nav-link" data-scroll-target="#statistiques-globales"><span class="header-section-number">3.1</span> Statistiques globales</a></li>
-  <li><a href="#repartition-par-ligne" id="toc-repartition-par-ligne" class="nav-link" data-scroll-target="#repartition-par-ligne"><span class="header-section-number">3.2</span> Repartition par ligne</a></li>
+  <li><a href="#statistiques-globales" id="toc-statistiques-globales" class="nav-link" data-scroll-target="#statistiques-globales"><span class="header-section-number">4.1</span> Statistiques globales</a></li>
+  <li><a href="#repartition-par-ligne" id="toc-repartition-par-ligne" class="nav-link" data-scroll-target="#repartition-par-ligne"><span class="header-section-number">4.2</span> Repartition par ligne</a></li>
+  <li><a href="#analyse-des-heures-de-pointe-matinsoir" id="toc-analyse-des-heures-de-pointe-matinsoir" class="nav-link" data-scroll-target="#analyse-des-heures-de-pointe-matinsoir"><span class="header-section-number">4.3</span> Analyse des heures de pointe (matin/soir)</a></li>
   </ul></li>
-  <li><a href="#etape-3-visualisations" id="toc-etape-3-visualisations" class="nav-link" data-scroll-target="#etape-3-visualisations"><span class="header-section-number">4</span> Etape 3: Visualisations</a>
+  <li><a href="#etape-3-visualisations" id="toc-etape-3-visualisations" class="nav-link" data-scroll-target="#etape-3-visualisations"><span class="header-section-number">5</span> Etape 3: Visualisations</a>
   <ul class="collapse">
-  <li><a href="#distribution-du-nombre-darrets-par-ligne" id="toc-distribution-du-nombre-darrets-par-ligne" class="nav-link" data-scroll-target="#distribution-du-nombre-darrets-par-ligne"><span class="header-section-number">4.1</span> Distribution du nombre d’arrets par ligne</a></li>
-  <li><a href="#distribution-du-nombre-de-trajets-par-ligne" id="toc-distribution-du-nombre-de-trajets-par-ligne" class="nav-link" data-scroll-target="#distribution-du-nombre-de-trajets-par-ligne"><span class="header-section-number">4.2</span> Distribution du nombre de trajets par ligne</a></li>
-  <li><a href="#boxplot-du-nombre-de-trajets-par-ligne" id="toc-boxplot-du-nombre-de-trajets-par-ligne" class="nav-link" data-scroll-target="#boxplot-du-nombre-de-trajets-par-ligne"><span class="header-section-number">4.3</span> Boxplot du nombre de trajets par ligne</a></li>
-  <li><a href="#distribution-de-lamplitude-horaire-par-ligne" id="toc-distribution-de-lamplitude-horaire-par-ligne" class="nav-link" data-scroll-target="#distribution-de-lamplitude-horaire-par-ligne"><span class="header-section-number">4.4</span> Distribution de l’amplitude horaire par ligne</a></li>
-  <li><a href="#repartition-horaire-des-departs" id="toc-repartition-horaire-des-departs" class="nav-link" data-scroll-target="#repartition-horaire-des-departs"><span class="header-section-number">4.5</span> Repartition horaire des departs</a></li>
-  <li><a href="#top-10-des-lignes-par-nombre-de-trajets" id="toc-top-10-des-lignes-par-nombre-de-trajets" class="nav-link" data-scroll-target="#top-10-des-lignes-par-nombre-de-trajets"><span class="header-section-number">4.6</span> Top 10 des lignes par nombre de trajets</a></li>
-  <li><a href="#relation-entre-arrets-et-trajets" id="toc-relation-entre-arrets-et-trajets" class="nav-link" data-scroll-target="#relation-entre-arrets-et-trajets"><span class="header-section-number">4.7</span> Relation entre arrets et trajets</a></li>
+  <li><a href="#distribution-du-nombre-darrets-par-ligne" id="toc-distribution-du-nombre-darrets-par-ligne" class="nav-link" data-scroll-target="#distribution-du-nombre-darrets-par-ligne"><span class="header-section-number">5.1</span> Distribution du nombre d’arrets par ligne</a></li>
+  <li><a href="#distribution-du-nombre-de-trajets-par-ligne" id="toc-distribution-du-nombre-de-trajets-par-ligne" class="nav-link" data-scroll-target="#distribution-du-nombre-de-trajets-par-ligne"><span class="header-section-number">5.2</span> Distribution du nombre de trajets par ligne</a></li>
+  <li><a href="#boxplot-du-nombre-de-trajets-par-ligne" id="toc-boxplot-du-nombre-de-trajets-par-ligne" class="nav-link" data-scroll-target="#boxplot-du-nombre-de-trajets-par-ligne"><span class="header-section-number">5.3</span> Boxplot du nombre de trajets par ligne</a></li>
+  <li><a href="#distribution-de-lamplitude-horaire-par-ligne" id="toc-distribution-de-lamplitude-horaire-par-ligne" class="nav-link" data-scroll-target="#distribution-de-lamplitude-horaire-par-ligne"><span class="header-section-number">5.4</span> Distribution de l’amplitude horaire par ligne</a></li>
+  <li><a href="#repartition-horaire-des-departs" id="toc-repartition-horaire-des-departs" class="nav-link" data-scroll-target="#repartition-horaire-des-departs"><span class="header-section-number">5.5</span> Repartition horaire des departs</a></li>
+  <li><a href="#top-10-des-lignes-par-nombre-de-trajets" id="toc-top-10-des-lignes-par-nombre-de-trajets" class="nav-link" data-scroll-target="#top-10-des-lignes-par-nombre-de-trajets"><span class="header-section-number">5.6</span> Top 10 des lignes par nombre de trajets</a></li>
+  <li><a href="#relation-entre-arrets-et-trajets" id="toc-relation-entre-arrets-et-trajets" class="nav-link" data-scroll-target="#relation-entre-arrets-et-trajets"><span class="header-section-number">5.7</span> Relation entre arrets et trajets</a></li>
   </ul></li>
-  <li><a href="#etape-4-interpretation-et-synthese" id="toc-etape-4-interpretation-et-synthese" class="nav-link" data-scroll-target="#etape-4-interpretation-et-synthese"><span class="header-section-number">5</span> Etape 4: Interpretation et synthese</a></li>
-  <li><a href="#etape-5-complement-danalyse" id="toc-etape-5-complement-danalyse" class="nav-link" data-scroll-target="#etape-5-complement-danalyse"><span class="header-section-number">6</span> Etape 5: Complement d’analyse</a>
+  <li><a href="#etape-4-interpretation-et-synthese" id="toc-etape-4-interpretation-et-synthese" class="nav-link" data-scroll-target="#etape-4-interpretation-et-synthese"><span class="header-section-number">6</span> Etape 4: Interpretation et synthese</a></li>
+  <li><a href="#etape-5-complement-danalyse" id="toc-etape-5-complement-danalyse" class="nav-link" data-scroll-target="#etape-5-complement-danalyse"><span class="header-section-number">7</span> Etape 5: Complement d’analyse</a>
   <ul class="collapse">
-  <li><a href="#lignes-a-forte-couverture-darrets" id="toc-lignes-a-forte-couverture-darrets" class="nav-link" data-scroll-target="#lignes-a-forte-couverture-darrets"><span class="header-section-number">6.1</span> Lignes a forte couverture d’arrets</a></li>
-  <li><a href="#qualite-des-donnees-horaires" id="toc-qualite-des-donnees-horaires" class="nav-link" data-scroll-target="#qualite-des-donnees-horaires"><span class="header-section-number">6.2</span> Qualite des donnees horaires</a></li>
+  <li><a href="#lignes-a-forte-couverture-darrets" id="toc-lignes-a-forte-couverture-darrets" class="nav-link" data-scroll-target="#lignes-a-forte-couverture-darrets"><span class="header-section-number">7.1</span> Lignes a forte couverture d’arrets</a></li>
+  <li><a href="#qualite-des-donnees-horaires" id="toc-qualite-des-donnees-horaires" class="nav-link" data-scroll-target="#qualite-des-donnees-horaires"><span class="header-section-number">7.2</span> Qualite des donnees horaires</a></li>
   </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">8</span> Conclusion</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/OumarouAhmed/Projet_R/edit/main/qmd/sts-offre-transport.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/OumarouAhmed/Projet_R/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -221,109 +224,118 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="1" class="anchored" data-anchor-id="contexte-et-objectifs"><span class="header-section-number">1</span> Contexte et objectifs</h2>
 <p>Ce document presente une analyse descriptive de l’offre de transport de la ST Sahel (jeu de donnees GTFS). Les etapes suivent le plan demande: chargement des donnees, statistiques globales, repartition par ligne, amplitude horaire, visualisations et interpretation des resultats.</p>
 </section>
-<section id="etape-1-collecte-et-preparation-des-donnees" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="etape-1-collecte-et-preparation-des-donnees"><span class="header-section-number">2</span> Etape 1: Collecte et preparation des donnees</h2>
+<section id="methodologie" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="methodologie"><span class="header-section-number">2</span> Methodologie</h2>
+<ul>
+<li>Source: donnees GTFS (routes, stops, trips, stop-times).</li>
+<li>Preparation: lecture UTF-16, harmonisation des identifiants et nettoyage des heures.</li>
+<li>Limites: pas de donnees de demande (voyageurs), analyse centree sur l’offre.</li>
+</ul>
+</section>
+<section id="etape-1-collecte-et-preparation-des-donnees" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="etape-1-collecte-et-preparation-des-donnees"><span class="header-section-number">3</span> Etape 1: Collecte et preparation des donnees</h2>
 <div class="cell">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>data_dir <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">"data"</span>, <span class="st">"STS"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">dir.exists</span>(data_dir)) {</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  data_dir <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">"qmd"</span>, <span class="st">"data"</span>, <span class="st">"STS"</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>read_gtfs <span class="ot">&lt;-</span> <span class="cf">function</span>(path) {</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    path,</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">fileEncoding =</span> <span class="st">"UTF-16LE"</span>,</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>,</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">header =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">check.names =</span> <span class="cn">TRUE</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> data[<span class="sc">-</span><span class="dv">1</span>, , drop <span class="ot">=</span> <span class="cn">FALSE</span>]</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  base <span class="ot">&lt;-</span> <span class="fu">basename</span>(path)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (base <span class="sc">==</span> <span class="st">"routes.txt"</span>) {</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    cols <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>      <span class="st">"agency_id"</span>,</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>      <span class="st">"route_short_name"</span>,</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>      <span class="st">"route_id"</span>,</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>      <span class="st">"route_long_name"</span>,</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>      <span class="st">"route_type"</span>,</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>      <span class="st">"route_type_name"</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (base <span class="sc">==</span> <span class="st">"stops.txt"</span>) {</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    cols <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"stop_id"</span>, <span class="st">"stop_name"</span>, <span class="st">"stop_lat"</span>, <span class="st">"stop_lon"</span>)</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (base <span class="sc">==</span> <span class="st">"trips.txt"</span>) {</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    cols <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"trip_id"</span>, <span class="st">"route_id"</span>, <span class="st">"service_id"</span>, <span class="st">"direction_id"</span>, <span class="st">"shape_id"</span>)</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (base <span class="sc">==</span> <span class="st">"stop-times.txt"</span>) {</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    cols <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>      <span class="st">"trip_id"</span>,</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>      <span class="st">"stop_id"</span>,</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>      <span class="st">"arrival_time"</span>,</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>      <span class="st">"departure_time"</span>,</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>      <span class="st">"stop_sequence"</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    cols <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"v"</span>, <span class="fu">seq_len</span>(<span class="fu">ncol</span>(data)))</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(data) <span class="ot">&lt;-</span> <span class="fu">tolower</span>(cols[<span class="fu">seq_len</span>(<span class="fu">ncol</span>(data))])</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  data</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>routes <span class="ot">&lt;-</span> <span class="fu">read_gtfs</span>(<span class="fu">file.path</span>(data_dir, <span class="st">"routes.txt"</span>))</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>stops <span class="ot">&lt;-</span> <span class="fu">read_gtfs</span>(<span class="fu">file.path</span>(data_dir, <span class="st">"stops.txt"</span>))</span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>trips <span class="ot">&lt;-</span> <span class="fu">read_gtfs</span>(<span class="fu">file.path</span>(data_dir, <span class="st">"trips.txt"</span>))</span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>stop_times <span class="ot">&lt;-</span> <span class="fu">read_gtfs</span>(<span class="fu">file.path</span>(data_dir, <span class="st">"stop-times.txt"</span>))</span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>routes<span class="sc">$</span>route_id <span class="ot">&lt;-</span> <span class="fu">as.character</span>(routes<span class="sc">$</span>route_id)</span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>trips<span class="sc">$</span>route_id <span class="ot">&lt;-</span> <span class="fu">as.character</span>(trips<span class="sc">$</span>route_id)</span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>trips<span class="sc">$</span>trip_id <span class="ot">&lt;-</span> <span class="fu">as.character</span>(trips<span class="sc">$</span>trip_id)</span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>stop_times<span class="sc">$</span>trip_id <span class="ot">&lt;-</span> <span class="fu">as.character</span>(stop_times<span class="sc">$</span>trip_id)</span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>stop_times<span class="sc">$</span>stop_id <span class="ot">&lt;-</span> <span class="fu">as.character</span>(stop_times<span class="sc">$</span>stop_id)</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>parse_hhmmss_to_minutes <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>  parts <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(x, <span class="st">":"</span>, <span class="at">fixed =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sapply</span>(parts, <span class="cf">function</span>(p) {</span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">length</span>(p) <span class="sc">==</span> <span class="dv">2</span>) {</span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>      <span class="fu">return</span>(<span class="fu">as.numeric</span>(p[<span class="dv">1</span>]) <span class="sc">*</span> <span class="dv">60</span> <span class="sc">+</span> <span class="fu">as.numeric</span>(p[<span class="dv">2</span>]))</span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">length</span>(p) <span class="sc">&lt;</span> <span class="dv">3</span>) {</span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>      <span class="fu">return</span>(<span class="cn">NA_real_</span>)</span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.numeric</span>(p[<span class="dv">1</span>]) <span class="sc">*</span> <span class="dv">60</span> <span class="sc">+</span> <span class="fu">as.numeric</span>(p[<span class="dv">2</span>]) <span class="sc">+</span> <span class="fu">as.numeric</span>(p[<span class="dv">3</span>]) <span class="sc">/</span> <span class="dv">60</span></span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>minutes_to_hhmm <span class="ot">&lt;-</span> <span class="cf">function</span>(m) {</span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.na</span>(m)) {</span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="cn">NA_character_</span>)</span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>  m_round <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="fu">round</span>(m))</span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>  h <span class="ot">&lt;-</span> m_round <span class="sc">%/%</span> <span class="dv">60</span></span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>  mins <span class="ot">&lt;-</span> m_round <span class="sc">%%</span> <span class="dv">60</span></span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sprintf</span>(<span class="st">"%02d:%02d"</span>, h, mins)</span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>stop_times <span class="ot">&lt;-</span> stop_times <span class="sc">%&gt;%</span></span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>    <span class="at">dep_min =</span> <span class="fu">parse_hhmmss_to_minutes</span>(departure_time),</span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>    <span class="at">arr_min =</span> <span class="fu">parse_hhmmss_to_minutes</span>(arrival_time)</span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>stop_times_clean <span class="ot">&lt;-</span> stop_times <span class="sc">%&gt;%</span></span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(dep_min), <span class="sc">!</span><span class="fu">is.na</span>(arr_min))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>data_dir <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">"data"</span>, <span class="st">"STS"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">dir.exists</span>(data_dir)) {</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  data_dir <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">"qmd"</span>, <span class="st">"data"</span>, <span class="st">"STS"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>read_gtfs <span class="ot">&lt;-</span> <span class="cf">function</span>(path) {</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    path,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">fileEncoding =</span> <span class="st">"UTF-16LE"</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">header =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">check.names =</span> <span class="cn">TRUE</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> data[<span class="sc">-</span><span class="dv">1</span>, , drop <span class="ot">=</span> <span class="cn">FALSE</span>]</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  base <span class="ot">&lt;-</span> <span class="fu">basename</span>(path)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (base <span class="sc">==</span> <span class="st">"routes.txt"</span>) {</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    cols <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>      <span class="st">"agency_id"</span>,</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>      <span class="st">"route_short_name"</span>,</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>      <span class="st">"route_id"</span>,</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>      <span class="st">"route_long_name"</span>,</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>      <span class="st">"route_type"</span>,</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>      <span class="st">"route_type_name"</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (base <span class="sc">==</span> <span class="st">"stops.txt"</span>) {</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    cols <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"stop_id"</span>, <span class="st">"stop_name"</span>, <span class="st">"stop_lat"</span>, <span class="st">"stop_lon"</span>)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (base <span class="sc">==</span> <span class="st">"trips.txt"</span>) {</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    cols <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"trip_id"</span>, <span class="st">"route_id"</span>, <span class="st">"service_id"</span>, <span class="st">"direction_id"</span>, <span class="st">"shape_id"</span>)</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (base <span class="sc">==</span> <span class="st">"stop-times.txt"</span>) {</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    cols <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>      <span class="st">"trip_id"</span>,</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>      <span class="st">"stop_id"</span>,</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>      <span class="st">"arrival_time"</span>,</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>      <span class="st">"departure_time"</span>,</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>      <span class="st">"stop_sequence"</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    cols <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"v"</span>, <span class="fu">seq_len</span>(<span class="fu">ncol</span>(data)))</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(data) <span class="ot">&lt;-</span> <span class="fu">tolower</span>(cols[<span class="fu">seq_len</span>(<span class="fu">ncol</span>(data))])</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>  data</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>routes <span class="ot">&lt;-</span> <span class="fu">read_gtfs</span>(<span class="fu">file.path</span>(data_dir, <span class="st">"routes.txt"</span>))</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>stops <span class="ot">&lt;-</span> <span class="fu">read_gtfs</span>(<span class="fu">file.path</span>(data_dir, <span class="st">"stops.txt"</span>))</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>trips <span class="ot">&lt;-</span> <span class="fu">read_gtfs</span>(<span class="fu">file.path</span>(data_dir, <span class="st">"trips.txt"</span>))</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>stop_times <span class="ot">&lt;-</span> <span class="fu">read_gtfs</span>(<span class="fu">file.path</span>(data_dir, <span class="st">"stop-times.txt"</span>))</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>routes<span class="sc">$</span>route_id <span class="ot">&lt;-</span> <span class="fu">as.character</span>(routes<span class="sc">$</span>route_id)</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>trips<span class="sc">$</span>route_id <span class="ot">&lt;-</span> <span class="fu">as.character</span>(trips<span class="sc">$</span>route_id)</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>trips<span class="sc">$</span>trip_id <span class="ot">&lt;-</span> <span class="fu">as.character</span>(trips<span class="sc">$</span>trip_id)</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>stop_times<span class="sc">$</span>trip_id <span class="ot">&lt;-</span> <span class="fu">as.character</span>(stop_times<span class="sc">$</span>trip_id)</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>stop_times<span class="sc">$</span>stop_id <span class="ot">&lt;-</span> <span class="fu">as.character</span>(stop_times<span class="sc">$</span>stop_id)</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>parse_hhmmss_to_minutes <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>  parts <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(x, <span class="st">":"</span>, <span class="at">fixed =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sapply</span>(parts, <span class="cf">function</span>(p) {</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">length</span>(p) <span class="sc">==</span> <span class="dv">2</span>) {</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>      <span class="fu">return</span>(<span class="fu">as.numeric</span>(p[<span class="dv">1</span>]) <span class="sc">*</span> <span class="dv">60</span> <span class="sc">+</span> <span class="fu">as.numeric</span>(p[<span class="dv">2</span>]))</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">length</span>(p) <span class="sc">&lt;</span> <span class="dv">3</span>) {</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>      <span class="fu">return</span>(<span class="cn">NA_real_</span>)</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.numeric</span>(p[<span class="dv">1</span>]) <span class="sc">*</span> <span class="dv">60</span> <span class="sc">+</span> <span class="fu">as.numeric</span>(p[<span class="dv">2</span>]) <span class="sc">+</span> <span class="fu">as.numeric</span>(p[<span class="dv">3</span>]) <span class="sc">/</span> <span class="dv">60</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>minutes_to_hhmm <span class="ot">&lt;-</span> <span class="cf">function</span>(m) {</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.na</span>(m)) {</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="cn">NA_character_</span>)</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>  m_round <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="fu">round</span>(m))</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>  h <span class="ot">&lt;-</span> m_round <span class="sc">%/%</span> <span class="dv">60</span></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>  mins <span class="ot">&lt;-</span> m_round <span class="sc">%%</span> <span class="dv">60</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sprintf</span>(<span class="st">"%02d:%02d"</span>, h, mins)</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>stop_times <span class="ot">&lt;-</span> stop_times <span class="sc">%&gt;%</span></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>    <span class="at">dep_min =</span> <span class="fu">parse_hhmmss_to_minutes</span>(departure_time),</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>    <span class="at">arr_min =</span> <span class="fu">parse_hhmmss_to_minutes</span>(arrival_time)</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>stop_times_clean <span class="ot">&lt;-</span> stop_times <span class="sc">%&gt;%</span></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(dep_min), <span class="sc">!</span><span class="fu">is.na</span>(arr_min))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
-<section id="etape-2-analyse-descriptive-et-statistiques-cles" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="etape-2-analyse-descriptive-et-statistiques-cles"><span class="header-section-number">3</span> Etape 2: Analyse descriptive et statistiques cles</h2>
+<section id="etape-2-analyse-descriptive-et-statistiques-cles" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="etape-2-analyse-descriptive-et-statistiques-cles"><span class="header-section-number">4</span> Etape 2: Analyse descriptive et statistiques cles</h2>
 <div class="cell">
 <details class="code-fold">
 <summary>Show code</summary>
@@ -431,8 +443,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<section id="statistiques-globales" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="statistiques-globales"><span class="header-section-number">3.1</span> Statistiques globales</h3>
+<section id="statistiques-globales" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="statistiques-globales"><span class="header-section-number">4.1</span> Statistiques globales</h3>
 <ul>
 <li>Nombre total de lignes: 265</li>
 <li>Nombre total d’arrets: 852</li>
@@ -442,8 +454,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Amplitude horaire (heures): 23.83</li>
 </ul>
 </section>
-<section id="repartition-par-ligne" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="repartition-par-ligne"><span class="header-section-number">3.2</span> Repartition par ligne</h3>
+<section id="repartition-par-ligne" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="repartition-par-ligne"><span class="header-section-number">4.2</span> Repartition par ligne</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Show code</summary>
@@ -533,11 +545,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
+<section id="analyse-des-heures-de-pointe-matinsoir" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="analyse-des-heures-de-pointe-matinsoir"><span class="header-section-number">4.3</span> Analyse des heures de pointe (matin/soir)</h3>
+<ul>
+<li>Heure la plus chargee: peak_hour h</li>
+<li>Part des departs 06h-09h: percent(morning_share)</li>
+<li>Part des departs 16h-19h: percent(evening_share)</li>
+</ul>
 </section>
-<section id="etape-3-visualisations" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="etape-3-visualisations"><span class="header-section-number">4</span> Etape 3: Visualisations</h2>
-<section id="distribution-du-nombre-darrets-par-ligne" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="distribution-du-nombre-darrets-par-ligne"><span class="header-section-number">4.1</span> Distribution du nombre d’arrets par ligne</h3>
+</section>
+<section id="etape-3-visualisations" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="etape-3-visualisations"><span class="header-section-number">5</span> Etape 3: Visualisations</h2>
+<section id="distribution-du-nombre-darrets-par-ligne" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="distribution-du-nombre-darrets-par-ligne"><span class="header-section-number">5.1</span> Distribution du nombre d’arrets par ligne</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Show code</summary>
@@ -559,8 +579,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="distribution-du-nombre-de-trajets-par-ligne" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="distribution-du-nombre-de-trajets-par-ligne"><span class="header-section-number">4.2</span> Distribution du nombre de trajets par ligne</h3>
+<section id="distribution-du-nombre-de-trajets-par-ligne" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="distribution-du-nombre-de-trajets-par-ligne"><span class="header-section-number">5.2</span> Distribution du nombre de trajets par ligne</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Show code</summary>
@@ -582,8 +602,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="boxplot-du-nombre-de-trajets-par-ligne" class="level3" data-number="4.3">
-<h3 data-number="4.3" class="anchored" data-anchor-id="boxplot-du-nombre-de-trajets-par-ligne"><span class="header-section-number">4.3</span> Boxplot du nombre de trajets par ligne</h3>
+<section id="boxplot-du-nombre-de-trajets-par-ligne" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="boxplot-du-nombre-de-trajets-par-ligne"><span class="header-section-number">5.3</span> Boxplot du nombre de trajets par ligne</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Show code</summary>
@@ -604,8 +624,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="distribution-de-lamplitude-horaire-par-ligne" class="level3" data-number="4.4">
-<h3 data-number="4.4" class="anchored" data-anchor-id="distribution-de-lamplitude-horaire-par-ligne"><span class="header-section-number">4.4</span> Distribution de l’amplitude horaire par ligne</h3>
+<section id="distribution-de-lamplitude-horaire-par-ligne" class="level3" data-number="5.4">
+<h3 data-number="5.4" class="anchored" data-anchor-id="distribution-de-lamplitude-horaire-par-ligne"><span class="header-section-number">5.4</span> Distribution de l’amplitude horaire par ligne</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Show code</summary>
@@ -627,8 +647,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="repartition-horaire-des-departs" class="level3" data-number="4.5">
-<h3 data-number="4.5" class="anchored" data-anchor-id="repartition-horaire-des-departs"><span class="header-section-number">4.5</span> Repartition horaire des departs</h3>
+<section id="repartition-horaire-des-departs" class="level3" data-number="5.5">
+<h3 data-number="5.5" class="anchored" data-anchor-id="repartition-horaire-des-departs"><span class="header-section-number">5.5</span> Repartition horaire des departs</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Show code</summary>
@@ -653,8 +673,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="top-10-des-lignes-par-nombre-de-trajets" class="level3" data-number="4.6">
-<h3 data-number="4.6" class="anchored" data-anchor-id="top-10-des-lignes-par-nombre-de-trajets"><span class="header-section-number">4.6</span> Top 10 des lignes par nombre de trajets</h3>
+<section id="top-10-des-lignes-par-nombre-de-trajets" class="level3" data-number="5.6">
+<h3 data-number="5.6" class="anchored" data-anchor-id="top-10-des-lignes-par-nombre-de-trajets"><span class="header-section-number">5.6</span> Top 10 des lignes par nombre de trajets</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Show code</summary>
@@ -677,8 +697,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="relation-entre-arrets-et-trajets" class="level3" data-number="4.7">
-<h3 data-number="4.7" class="anchored" data-anchor-id="relation-entre-arrets-et-trajets"><span class="header-section-number">4.7</span> Relation entre arrets et trajets</h3>
+<section id="relation-entre-arrets-et-trajets" class="level3" data-number="5.7">
+<h3 data-number="5.7" class="anchored" data-anchor-id="relation-entre-arrets-et-trajets"><span class="header-section-number">5.7</span> Relation entre arrets et trajets</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Show code</summary>
@@ -702,8 +722,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="etape-4-interpretation-et-synthese" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="etape-4-interpretation-et-synthese"><span class="header-section-number">5</span> Etape 4: Interpretation et synthese</h2>
+<section id="etape-4-interpretation-et-synthese" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="etape-4-interpretation-et-synthese"><span class="header-section-number">6</span> Etape 4: Interpretation et synthese</h2>
 <ul>
 <li>L’offre comprend 265 lignes et 852 arrets.</li>
 <li>Le service debute a 00:05 et se termine vers 23:55, pour une amplitude d’environ 23.8 heures.</li>
@@ -712,10 +732,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>L’amplitude horaire mediane par ligne est de 12 heures, avec un maximum de 23.8 heures.</li>
 </ul>
 </section>
-<section id="etape-5-complement-danalyse" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="etape-5-complement-danalyse"><span class="header-section-number">6</span> Etape 5: Complement d’analyse</h2>
-<section id="lignes-a-forte-couverture-darrets" class="level3" data-number="6.1">
-<h3 data-number="6.1" class="anchored" data-anchor-id="lignes-a-forte-couverture-darrets"><span class="header-section-number">6.1</span> Lignes a forte couverture d’arrets</h3>
+<section id="etape-5-complement-danalyse" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="etape-5-complement-danalyse"><span class="header-section-number">7</span> Etape 5: Complement d’analyse</h2>
+<section id="lignes-a-forte-couverture-darrets" class="level3" data-number="7.1">
+<h3 data-number="7.1" class="anchored" data-anchor-id="lignes-a-forte-couverture-darrets"><span class="header-section-number">7.1</span> Lignes a forte couverture d’arrets</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Show code</summary>
@@ -739,8 +759,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="qualite-des-donnees-horaires" class="level3" data-number="6.2">
-<h3 data-number="6.2" class="anchored" data-anchor-id="qualite-des-donnees-horaires"><span class="header-section-number">6.2</span> Qualite des donnees horaires</h3>
+<section id="qualite-des-donnees-horaires" class="level3" data-number="7.2">
+<h3 data-number="7.2" class="anchored" data-anchor-id="qualite-des-donnees-horaires"><span class="header-section-number">7.2</span> Qualite des donnees horaires</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Show code</summary>
@@ -758,9 +778,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 1   660             0             0</code></pre>
 </div>
 </div>
-
-
 </section>
+</section>
+<section id="conclusion" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">8</span> Conclusion</h2>
+<p>Constats: - Les trajets sont concentres sur un petit nombre de lignes. - La distribution des frequences est heterogene selon les lignes. - Les departs se concentrent sur des plages horaires de pointe (matin/soir).</p>
+<p>Recommandations: - Renforcer l’offre sur les lignes les plus sollicitees. - Ajuster la frequence pendant les heures de pointe matin/soir. - Ameliorer la qualite des donnees horaires pour un suivi plus fin.</p>
+
+
 </section>
 
 </main> <!-- /main -->
