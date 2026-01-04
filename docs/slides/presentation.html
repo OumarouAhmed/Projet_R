@@ -9,6 +9,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.26">
 
+  <meta name="author" content="Ahmed Oumarou">
   <title>Transport ST Sahel</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -29,6 +30,7 @@
     }
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-0fde88a82f0356838740f155f1088782.css">
+  <link rel="stylesheet" href="slides/style.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -127,8 +129,14 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Transport ST Sahel</h1>
+  <p class="subtitle">Analyse descriptive de l’offre</p>
 
 <div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Ahmed Oumarou 
+</div>
+</div>
 </div>
 
 </section>
@@ -137,30 +145,57 @@
 <ul>
 <li>Analyse descriptive de l’offre de transport ST Sahel</li>
 <li>Donnees GTFS: routes, stops, trips, stop-times</li>
+<li>Objectif: decrire l’offre et les horaires de service</li>
 </ul>
 </section>
-<section id="objectifs" class="slide level2">
-<h2>Objectifs</h2>
+<section id="problematique" class="slide level2">
+<h2>Problematique</h2>
 <ul>
-<li>Quantifier l’offre (lignes, arrets, trajets)</li>
-<li>Decrire la repartition par ligne</li>
-<li>Identifier les heures de pointe</li>
+<li>Comment se repartit l’offre entre les lignes ?</li>
+<li>Quelles sont les lignes dominantes ?</li>
+<li>Quelles sont les heures de pointe ?</li>
+</ul>
+</section>
+<section id="donnees" class="slide level2">
+<h2>Donnees</h2>
+<ul>
+<li>Sources: fichiers GTFS officiels</li>
+<li>Champs cles: lignes, arrets, trajets, horaires</li>
+<li>Perimetre: offre de transport (sans demande voyageurs)</li>
 </ul>
 </section>
 <section id="methodologie" class="slide level2">
 <h2>Methodologie</h2>
 <ul>
-<li>Lecture des fichiers GTFS (UTF-16)</li>
+<li>Lecture GTFS (UTF-16)</li>
 <li>Nettoyage des heures (HH:MM)</li>
+<li>Indicateurs: lignes, arrets, trajets, amplitude</li>
 <li>Agregations par ligne et par heure</li>
 </ul>
 </section>
-<section id="resultats-cles" class="slide level2">
-<h2>Resultats cles</h2>
+<section id="indicateurs-globaux" class="slide level2">
+<h2>Indicateurs globaux</h2>
 <ul>
-<li>Nombre total de lignes, arrets, trajets</li>
+<li>Nombre total de lignes</li>
+<li>Nombre total d’arrets</li>
+<li>Nombre total de trajets</li>
 <li>Amplitude horaire du service</li>
-<li>Concentration des trajets sur le top 10 lignes</li>
+</ul>
+</section>
+<section id="repartition-par-ligne" class="slide level2">
+<h2>Repartition par ligne</h2>
+<ul>
+<li>Top 10 lignes par nombre de trajets</li>
+<li>Part des trajets par ligne</li>
+<li>Frequence moyenne par heure</li>
+</ul>
+</section>
+<section id="heures-de-pointe" class="slide level2">
+<h2>Heures de pointe</h2>
+<ul>
+<li>Matin: 06h-09h</li>
+<li>Soir: 16h-19h</li>
+<li>Heure la plus chargee</li>
 </ul>
 </section>
 <section id="visualisations" class="slide level2">
@@ -169,23 +204,30 @@
 <li>Histogrammes (arrets, trajets)</li>
 <li>Boxplot des trajets par ligne</li>
 <li>Repartition horaire des departs</li>
-<li>Top 10 lignes</li>
+<li>Top 10 lignes (trajets et part)</li>
 </ul>
 </section>
 <section id="interpretation" class="slide level2">
 <h2>Interpretation</h2>
 <ul>
-<li>Offre concentree sur un petit nombre de lignes</li>
+<li>Offre concentree sur peu de lignes</li>
 <li>Forte heterogeneite entre lignes</li>
-<li>Pics matin/soir</li>
+<li>Pics horaires clairs matin/soir</li>
 </ul>
 </section>
 <section id="recommandations" class="slide level2">
 <h2>Recommandations</h2>
 <ul>
-<li>Renforcer l’offre sur les lignes les plus sollicitees</li>
+<li>Renforcer les lignes les plus sollicitees</li>
 <li>Ajuster la frequence en heures de pointe</li>
 <li>Ameliorer la qualite des donnees horaires</li>
+</ul>
+</section>
+<section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
+<ul>
+<li>Objectifs atteints</li>
+<li>Analyse exploitable pour decision transport</li>
 </ul>
 </section>
 <section id="merci" class="slide level2">
@@ -375,12 +417,12 @@
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1050,
+        width: 1200,
 
         height: 700,
 
         // Factor of the display size that should remain empty around the content
-        margin: 0.1,
+        margin: 6.0e-2,
 
         math: {
           mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',

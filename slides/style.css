@@ -1,0 +1,35 @@
+/* Slides style - sobre */
+.reveal {
+  font-family: Georgia, "Times New Roman", serif;
+  background: #f7f4ef;
+  color: #1f1f1f;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  color: #0f2d3f;
+  letter-spacing: 0.3px;
+}
+
+.reveal .title-slide h1 {
+  font-size: 2.6em;
+}
+
+.reveal .title-slide h2,
+.reveal .title-slide h3 {
+  color: #2b5d6e;
+  font-weight: 500;
+}
+
+.reveal section {
+  line-height: 1.35;
+}
+
+.reveal ul {
+  margin-left: 0.9em;
+}
+
+.reveal strong {
+  color: #0f2d3f;
+}

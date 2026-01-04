@@ -24,6 +24,7 @@ interpretation des resultats.
 - Preparation: lecture UTF-16, harmonisation des identifiants et nettoyage des heures.
 - Limites: pas de donnees de demande (voyageurs), analyse centree sur l'offre.
 
+
 ## Etape 1: Collecte et preparation des donnees
 
 ```{r}
@@ -230,6 +231,13 @@ top_10_lines <- line_stats %>%
   slice_head(n = 10)
 ```
 
+## Resume executif
+
+- Offre: `r total_lignes` lignes, `r total_arrets` arrets, `r total_trajets` trajets.
+- Service: debut a `r first_bus_time`, fin a `r last_bus_time` (amplitude `r round(amplitude_hours, 1)` h).
+- Concentration: top 10 lignes = `r round(sum(top_10_lines$Part_Trajets) * 100, 1)` % des trajets.
+- Pointe: heure la plus chargee a `r peak_hour$heure` h (matin/soir dominants).
+
 ### Statistiques globales
 
 - Nombre total de lignes: `r total_lignes`
@@ -423,6 +431,8 @@ Recommandations:
 - Renforcer l'offre sur les lignes les plus sollicitees.
 - Ajuster la frequence pendant les heures de pointe matin/soir.
 - Ameliorer la qualite des donnees horaires pour un suivi plus fin.
+
+
 
 
 
