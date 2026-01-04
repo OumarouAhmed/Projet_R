@@ -11,43 +11,63 @@ format:
 
 - Analyse descriptive de l'offre de transport ST Sahel
 - Donnees GTFS: routes, stops, trips, stop-times
+- Objectif: decrire l'offre et les horaires de service
 
-## Objectifs
+## Problematique
 
-- Quantifier l'offre (lignes, arrets, trajets)
-- Decrire la repartition par ligne
-- Identifier les heures de pointe
+- Comment se repartit l'offre entre les lignes ?
+- Quelles sont les lignes dominantes ?
+- Quelles sont les heures de pointe ?
 
 ## Methodologie
 
-- Lecture des fichiers GTFS (UTF-16)
+- Lecture GTFS (UTF-16)
 - Nettoyage des heures (HH:MM)
+- Indicateurs: lignes, arrets, trajets, amplitude
 - Agregations par ligne et par heure
 
-## Resultats cles
+## Indicateurs globaux
 
-- Nombre total de lignes, arrets, trajets
+- Nombre total de lignes
+- Nombre total d'arrets
+- Nombre total de trajets
 - Amplitude horaire du service
-- Concentration des trajets sur le top 10 lignes
+
+## Repartition par ligne
+
+- Top 10 lignes par nombre de trajets
+- Part des trajets par ligne
+- Frequence moyenne par heure
+
+## Heures de pointe
+
+- Analyse matin (06-09)
+- Analyse soir (16-19)
+- Heure la plus chargee
 
 ## Visualisations
 
 - Histogrammes (arrets, trajets)
 - Boxplot des trajets par ligne
 - Repartition horaire des departs
-- Top 10 lignes
+- Top 10 lignes (trajets et part)
 
 ## Interpretation
 
-- Offre concentree sur un petit nombre de lignes
+- Offre concentree sur peu de lignes
 - Forte heterogeneite entre lignes
-- Pics matin/soir
+- Pics horaires clairs matin/soir
 
 ## Recommandations
 
-- Renforcer l'offre sur les lignes les plus sollicitees
-- Ajuster la frequence en heures de pointe
+- Renforcer les lignes les plus sollicitees
+- Ajuster la frequence aux heures de pointe
 - Ameliorer la qualite des donnees horaires
+
+## Conclusion
+
+- Objectifs atteints
+- Analyse exploitable pour decision transport
 
 ## Merci
 
