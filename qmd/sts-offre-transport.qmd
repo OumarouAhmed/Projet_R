@@ -257,6 +257,9 @@ evening_share <- hourly_counts %>%
 
 ### Statistiques globales
 
+Ce bloc resume les chiffres cles a l'echelle du reseau (lignes, arrets, trajets, amplitude).
+
+
 - Nombre total de lignes: `r total_lignes`
 - Nombre total d'arrets: `r total_arrets`
 - Nombre total de trajets: `r total_trajets`
@@ -265,6 +268,9 @@ evening_share <- hourly_counts %>%
 - Amplitude horaire (heures): `r round(amplitude_hours, 2)`
 
 ### Repartition par ligne
+
+Cette section compare les lignes entre elles (volumes, frequence moyenne, part des trajets).
+
 
 ```{r}
 # Apercu des lignes les plus frequentes
@@ -296,6 +302,9 @@ amplitude_stats
 ```
 
 ### Analyse des heures de pointe (matin/soir)
+
+Lecture rapide des pics de service sur les plages 06h-09h et 16h-19h.
+
 
 - Heure la plus chargee: `r peak_hour$heure` h
 - Part des departs 06h-09h: `r percent(morning_share)`
@@ -445,6 +454,7 @@ Recommandations:
 - Renforcer l'offre sur les lignes les plus sollicitees.
 - Ajuster la frequence pendant les heures de pointe matin/soir.
 - Ameliorer la qualite des donnees horaires pour un suivi plus fin.
+
 
 
 
