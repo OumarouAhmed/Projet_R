@@ -99,11 +99,22 @@
     ]
   },
   {
+    "objectID": "qmd/sts-offre-transport.html#limites-de-lanalyse",
+    "href": "qmd/sts-offre-transport.html#limites-de-lanalyse",
+    "title": "STS - Offre de transport: analyse descriptive",
+    "section": "9 Limites de l’analyse",
+    "text": "9 Limites de l’analyse\n\nDonnees d’offre uniquement (pas de demande voyageurs).\nPeriode temporelle limitee aux fichiers GTFS disponibles.\nQualite des heures dependante du renseignement initial.",
+    "crumbs": [
+      "Projects",
+      "STS - Offre de transport: analyse descriptive"
+    ]
+  },
+  {
     "objectID": "qmd/sts-offre-transport.html#conclusion",
     "href": "qmd/sts-offre-transport.html#conclusion",
     "title": "STS - Offre de transport: analyse descriptive",
-    "section": "9 Conclusion",
-    "text": "9 Conclusion\nConstats: - Les trajets sont concentres sur un petit nombre de lignes. - La distribution des frequences est heterogene selon les lignes. - Les departs se concentrent sur des plages horaires de pointe (matin/soir).\nRecommandations: - Renforcer l’offre sur les lignes les plus sollicitees. - Ajuster la frequence pendant les heures de pointe matin/soir. - Ameliorer la qualite des donnees horaires pour un suivi plus fin.",
+    "section": "10 Conclusion",
+    "text": "10 Conclusion\nConstats: - Les trajets sont concentres sur un petit nombre de lignes. - La distribution des frequences est heterogene selon les lignes. - Les departs se concentrent sur des plages horaires de pointe (matin/soir).\nRecommandations: - Renforcer l’offre sur les lignes les plus sollicitees. - Ajuster la frequence pendant les heures de pointe matin/soir. - Ameliorer la qualite des donnees horaires pour un suivi plus fin.",
     "crumbs": [
       "Projects",
       "STS - Offre de transport: analyse descriptive"

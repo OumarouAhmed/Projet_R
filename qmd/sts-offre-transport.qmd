@@ -443,6 +443,12 @@ missing_times <- stop_times %>%
 missing_times
 ```
 
+## Limites de l'analyse
+
+- Donnees d'offre uniquement (pas de demande voyageurs).
+- Periode temporelle limitee aux fichiers GTFS disponibles.
+- Qualite des heures dependante du renseignement initial.
+
 ## Conclusion
 
 Constats:
@@ -454,6 +460,7 @@ Recommandations:
 - Renforcer l'offre sur les lignes les plus sollicitees.
 - Ajuster la frequence pendant les heures de pointe matin/soir.
 - Ameliorer la qualite des donnees horaires pour un suivi plus fin.
+
 
 
 
