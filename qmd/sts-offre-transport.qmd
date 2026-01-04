@@ -229,6 +229,23 @@ top_15_share <- line_stats %>%
 top_10_lines <- line_stats %>%
   arrange(desc(Nombre_Trajets)) %>%
   slice_head(n = 10)
+
+hourly_counts <- stop_times_clean %>%
+  mutate(heure = floor(dep_min / 60)) %>%
+  count(heure, name = "departs")
+
+peak_hour <- hourly_counts %>%
+  slice_max(departs, n = 1, with_ties = FALSE)
+
+morning_share <- hourly_counts %>%
+  filter(heure >= 6, heure <= 9) %>%
+  summarise(part = sum(departs) / sum(hourly_counts$departs)) %>%
+  pull(part)
+
+evening_share <- hourly_counts %>%
+  filter(heure >= 16, heure <= 19) %>%
+  summarise(part = sum(departs) / sum(hourly_counts$departs)) %>%
+  pull(part)
 ```
 
 ## Resume executif
@@ -280,12 +297,9 @@ amplitude_stats
 
 ### Analyse des heures de pointe (matin/soir)
 
-- Heure la plus chargee: 
- peak_hour h
-- Part des departs 06h-09h: 
- percent(morning_share)
-- Part des departs 16h-19h: 
- percent(evening_share)
+- Heure la plus chargee: `r peak_hour$heure` h
+- Part des departs 06h-09h: `r percent(morning_share)`
+- Part des departs 16h-19h: `r percent(evening_share)`
 
 ## Etape 3: Visualisations
 
@@ -431,6 +445,11 @@ Recommandations:
 - Renforcer l'offre sur les lignes les plus sollicitees.
 - Ajuster la frequence pendant les heures de pointe matin/soir.
 - Ameliorer la qualite des donnees horaires pour un suivi plus fin.
+
+
+
+
+
 
 
 
