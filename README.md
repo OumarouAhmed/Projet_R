@@ -9,8 +9,7 @@ l'organisation des lignes, la frequence des trajets et les plages horaires de se
 - Rapport Quarto: `qmd/sts-offre-transport.qmd`
 - Donnees GTFS: `qmd/data/STS/`
 - Configuration Quarto: `_quarto.yml`
-- Slides de presentation: `slides/presentation.qmd` et `slides/presentation.pptx`
-- Sortie site (bonus): `docs/`
+- Sortie site: `docs/`
 
 ## Resultats principaux (resume)
 
@@ -28,10 +27,9 @@ Prerequis: R + Quarto.
 2) Ouvrir le resultat:
    - `docs/index.html`
 
-## Slides / Presentation
+## Site web
 
-- Fichier Quarto: `slides/presentation.qmd`
-- Fichier PPTX: `slides/presentation.pptx`
+https://oumarouahmed.github.io/Projet_R/
 
 ## Structure des donnees
 
@@ -44,3 +42,5 @@ Les fichiers GTFS utilises:
 ## Auteur
 
 Ahmed Oumarou
+
+
