@@ -1,110 +1,5 @@
 [
   {
-    "objectID": "slides/presentation.html#contexte",
-    "href": "slides/presentation.html#contexte",
-    "title": "Transport ST Sahel",
-    "section": "Contexte",
-    "text": "Contexte\n\nAnalyse descriptive de l’offre de transport ST Sahel\nDonnees GTFS: routes, stops, trips, stop-times\nObjectif: decrire l’offre et les horaires de service"
-  },
-  {
-    "objectID": "slides/presentation.html#problematique",
-    "href": "slides/presentation.html#problematique",
-    "title": "Transport ST Sahel",
-    "section": "Problematique",
-    "text": "Problematique\n\nComment se repartit l’offre entre les lignes ?\nQuelles sont les lignes dominantes ?\nQuelles sont les heures de pointe ?"
-  },
-  {
-    "objectID": "slides/presentation.html#donnees",
-    "href": "slides/presentation.html#donnees",
-    "title": "Transport ST Sahel",
-    "section": "Donnees",
-    "text": "Donnees\n\nSources: fichiers GTFS officiels\nChamps cles: lignes, arrets, trajets, horaires\nPerimetre: offre de transport (sans demande voyageurs)"
-  },
-  {
-    "objectID": "slides/presentation.html#methodologie",
-    "href": "slides/presentation.html#methodologie",
-    "title": "Transport ST Sahel",
-    "section": "Methodologie",
-    "text": "Methodologie\n\nLecture GTFS (UTF-16)\nNettoyage des heures (HH:MM)\nIndicateurs: lignes, arrets, trajets, amplitude\nAgregations par ligne et par heure"
-  },
-  {
-    "objectID": "slides/presentation.html#indicateurs-globaux",
-    "href": "slides/presentation.html#indicateurs-globaux",
-    "title": "Transport ST Sahel",
-    "section": "Indicateurs globaux",
-    "text": "Indicateurs globaux\n\nNombre total de lignes\nNombre total d’arrets\nNombre total de trajets\nAmplitude horaire du service"
-  },
-  {
-    "objectID": "slides/presentation.html#repartition-par-ligne",
-    "href": "slides/presentation.html#repartition-par-ligne",
-    "title": "Transport ST Sahel",
-    "section": "Repartition par ligne",
-    "text": "Repartition par ligne\n\nTop 10 lignes par nombre de trajets\nPart des trajets par ligne\nFrequence moyenne par heure"
-  },
-  {
-    "objectID": "slides/presentation.html#heures-de-pointe",
-    "href": "slides/presentation.html#heures-de-pointe",
-    "title": "Transport ST Sahel",
-    "section": "Heures de pointe",
-    "text": "Heures de pointe\n\nMatin: 06h-09h\nSoir: 16h-19h\nHeure la plus chargee"
-  },
-  {
-    "objectID": "slides/presentation.html#visualisations",
-    "href": "slides/presentation.html#visualisations",
-    "title": "Transport ST Sahel",
-    "section": "Visualisations",
-    "text": "Visualisations\n\nHistogrammes (arrets, trajets)\nBoxplot des trajets par ligne\nRepartition horaire des departs\nTop 10 lignes (trajets et part)"
-  },
-  {
-    "objectID": "slides/presentation.html#interpretation",
-    "href": "slides/presentation.html#interpretation",
-    "title": "Transport ST Sahel",
-    "section": "Interpretation",
-    "text": "Interpretation\n\nOffre concentree sur peu de lignes\nForte heterogeneite entre lignes\nPics horaires clairs matin/soir"
-  },
-  {
-    "objectID": "slides/presentation.html#recommandations",
-    "href": "slides/presentation.html#recommandations",
-    "title": "Transport ST Sahel",
-    "section": "Recommandations",
-    "text": "Recommandations\n\nRenforcer les lignes les plus sollicitees\nAjuster la frequence en heures de pointe\nAmeliorer la qualite des donnees horaires"
-  },
-  {
-    "objectID": "slides/presentation.html#conclusion",
-    "href": "slides/presentation.html#conclusion",
-    "title": "Transport ST Sahel",
-    "section": "Conclusion",
-    "text": "Conclusion\n\nObjectifs atteints\nAnalyse exploitable pour decision transport"
-  },
-  {
-    "objectID": "slides/presentation.html#merci",
-    "href": "slides/presentation.html#merci",
-    "title": "Transport ST Sahel",
-    "section": "Merci",
-    "text": "Merci\nQuestions ?"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Transport ST Sahel",
-    "section": "",
-    "text": "Ce site presente le projet d’analyse descriptive de l’offre de transport ST Sahel. Il couvre le chargement des donnees, les statistiques cles, les visualisations et une synthese des resultats."
-  },
-  {
-    "objectID": "index.html#introduction",
-    "href": "index.html#introduction",
-    "title": "Transport ST Sahel",
-    "section": "",
-    "text": "Ce site presente le projet d’analyse descriptive de l’offre de transport ST Sahel. Il couvre le chargement des donnees, les statistiques cles, les visualisations et une synthese des resultats."
-  },
-  {
-    "objectID": "index.html#auteur",
-    "href": "index.html#auteur",
-    "title": "Transport ST Sahel",
-    "section": "2 Auteur",
-    "text": "2 Auteur\nAhmed Oumarou"
-  },
-  {
     "objectID": "qmd/sts-offre-transport.html",
     "href": "qmd/sts-offre-transport.html",
     "title": "STS - Offre de transport: analyse descriptive",
@@ -202,5 +97,26 @@
       "Projects",
       "STS - Offre de transport: analyse descriptive"
     ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Transport ST Sahel",
+    "section": "",
+    "text": "Ce site presente le projet d’analyse descriptive de l’offre de transport ST Sahel. Il couvre le chargement des donnees, les statistiques cles, les visualisations et une synthese des resultats."
+  },
+  {
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
+    "title": "Transport ST Sahel",
+    "section": "",
+    "text": "Ce site presente le projet d’analyse descriptive de l’offre de transport ST Sahel. Il couvre le chargement des donnees, les statistiques cles, les visualisations et une synthese des resultats."
+  },
+  {
+    "objectID": "index.html#auteur",
+    "href": "index.html#auteur",
+    "title": "Transport ST Sahel",
+    "section": "2 Auteur",
+    "text": "2 Auteur\nAhmed Oumarou"
   }
 ]
