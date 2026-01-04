@@ -1,0 +1,54 @@
+---
+title: "Transport ST Sahel"
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    transition: fade
+---
+
+## Contexte
+
+- Analyse descriptive de l'offre de transport ST Sahel
+- Donnees GTFS: routes, stops, trips, stop-times
+
+## Objectifs
+
+- Quantifier l'offre (lignes, arrets, trajets)
+- Decrire la repartition par ligne
+- Identifier les heures de pointe
+
+## Methodologie
+
+- Lecture des fichiers GTFS (UTF-16)
+- Nettoyage des heures (HH:MM)
+- Agregations par ligne et par heure
+
+## Resultats cles
+
+- Nombre total de lignes, arrets, trajets
+- Amplitude horaire du service
+- Concentration des trajets sur le top 10 lignes
+
+## Visualisations
+
+- Histogrammes (arrets, trajets)
+- Boxplot des trajets par ligne
+- Repartition horaire des departs
+- Top 10 lignes
+
+## Interpretation
+
+- Offre concentree sur un petit nombre de lignes
+- Forte heterogeneite entre lignes
+- Pics matin/soir
+
+## Recommandations
+
+- Renforcer l'offre sur les lignes les plus sollicitees
+- Ajuster la frequence en heures de pointe
+- Ameliorer la qualite des donnees horaires
+
+## Merci
+
+Questions ?
