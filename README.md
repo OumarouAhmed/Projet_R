@@ -33,8 +33,7 @@ https://oumarouahmed.github.io/Projet_R/
 
 ## Slides / Presentation
 
-- Quarto: slides/presentation.qmd`r
-- PPTX: (a generer si besoin)`r
+- Quarto: slides/presentation.qmd
 
 ## Structure des donnees
 
