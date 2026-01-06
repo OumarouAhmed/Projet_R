@@ -1,0 +1,79 @@
+---
+title: "Transport ST Sahel"
+subtitle: "Analyse descriptive de l'offre"
+author: "Ahmed Oumarou"
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    transition: fade
+    width: 1200
+    height: 700
+    margin: 0.06
+---
+
+## Contexte
+
+- Analyse descriptive de l'offre de transport ST Sahel
+- Donnees GTFS: routes, stops, trips, stop-times
+- Objectif: decrire l'offre et les horaires de service
+
+## Problematique
+
+- Comment se repartit l'offre entre les lignes ?
+- Quelles sont les lignes dominantes ?
+- Quelles sont les heures de pointe ?
+
+## Methodologie
+
+- Lecture GTFS (UTF-16)
+- Nettoyage des heures (HH:MM)
+- Indicateurs: lignes, arrets, trajets, amplitude
+- Agregations par ligne et par heure
+
+## Resultats globaux
+
+- Nombre total de lignes
+- Nombre total d'arrets
+- Nombre total de trajets
+- Amplitude horaire du service
+
+## Repartition par ligne
+
+- Top 10 lignes par nombre de trajets
+- Part des trajets par ligne
+- Frequence moyenne par heure
+
+## Heures de pointe
+
+- Matin: 06h-09h
+- Soir: 16h-19h
+- Heure la plus chargee
+
+## Visualisations
+
+- Histogrammes (arrets, trajets)
+- Boxplot des trajets par ligne
+- Repartition horaire des departs
+- Top 10 lignes
+
+## Interpretation
+
+- Offre concentree sur peu de lignes
+- Forte heterogeneite entre lignes
+- Pics horaires clairs matin/soir
+
+## Recommandations
+
+- Renforcer les lignes les plus sollicitees
+- Ajuster la frequence en heures de pointe
+- Ameliorer la qualite des donnees horaires
+
+## Conclusion
+
+- Objectifs atteints
+- Analyse utile pour la decision transport
+
+## Merci
+
+Questions ?

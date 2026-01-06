@@ -31,6 +31,11 @@ Prerequis: R + Quarto.
 
 https://oumarouahmed.github.io/Projet_R/
 
+## Slides / Presentation
+
+- Quarto: slides/presentation.qmd`r
+- PPTX: (a generer si besoin)`r
+
 ## Structure des donnees
 
 Les fichiers GTFS utilises:
@@ -42,5 +47,6 @@ Les fichiers GTFS utilises:
 ## Auteur
 
 Ahmed Oumarou
+
 
 
