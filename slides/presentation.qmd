@@ -57,6 +57,24 @@ format:
 - Repartition horaire des departs
 - Top 10 lignes
 
+## Graphiques - Distribution
+
+![](../docs/qmd/sts-offre-transport_files/figure-html/unnamed-chunk-9-1.png){width=85%}
+
+---
+
+## Graphiques - Heures de pointe
+
+![](../docs/qmd/sts-offre-transport_files/figure-html/unnamed-chunk-15-1.png){width=85%}
+
+---
+
+## Graphiques - Top 10 lignes
+
+![](../docs/qmd/sts-offre-transport_files/figure-html/unnamed-chunk-13-1.png){width=85%}
+
+---
+
 ## Interpretation
 
 - Offre concentree sur peu de lignes
@@ -77,3 +95,4 @@ format:
 ## Merci
 
 Questions ?
+
